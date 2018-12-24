@@ -8,7 +8,7 @@ echo.^(^?^) Ви впевнені^? ^(Enter або закрийте вікно^)
 pause>nul
 
 call :logo
-echo.^(^!^) Запуск [ADSI] TurnON...
+echo.^(^!^) Запуск [MikronT] TurnON...
 >nul timeout /nobreak /t 3
 
 
@@ -111,10 +111,10 @@ exit
 
 
 :logo
-title [ADSI] TurnON
+title [MikronT] TurnON
 color 0b
 cls
 echo.
-echo.    [ADSI] ==^> TurnON
+echo.    [MikronT] ==^> TurnON
 echo.
 exit /b
