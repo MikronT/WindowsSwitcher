@@ -1,5 +1,5 @@
 @echo off
-chcp 65001
+chcp 65001>nul
 
 net session>nul 2>nul
 if %errorLevel% GEQ 1 goto :startAsAdmin
