@@ -13,7 +13,7 @@ cd "%~dp0"
 
 call :logo
 echo.^(^i^) Windows Switcher is running...
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 echo.^(^?^) Are you sure^? ^(Enter or close^)
 pause>nul
@@ -29,13 +29,13 @@ start regedit
 start regedit.exe
 start %WinDir%\regedit.exe
 start "" "C:\Windows\regedit.exe"
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Updating group policy...
 for /l %%i in (4,-1,1) do gpupdate /force
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
@@ -43,37 +43,37 @@ for /l %%i in (4,-1,1) do gpupdate /force
 
 echo.^(^i^) Enabling Windows Task Manager...
 for /l %%i in (4,-1,1) do reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 0 /f
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Enabling Windows Command Prompt ^(CMD^)...
 for /l %%i in (4,-1,1) do reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCMD /t REG_DWORD /d 0 /f
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Enabling Windows Desktop...
 for /l %%i in (4,-1,1) do reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoDesktop /t REG_DWORD /d 0 /f
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Enabling Run program...
 for /l %%i in (4,-1,1) do reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoRun /t REG_DWORD /d 0 /f
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Enabling Windows Control Panel...
 for /l %%i in (4,-1,1) do reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoControlPanel /t REG_DWORD /d 0 /f
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Updating group policy...
 for /l %%i in (4,-1,1) do gpupdate /force
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
@@ -84,7 +84,7 @@ start taskmgr
 start taskmgr.exe
 start %WinDir%\System32\taskmgr.exe
 start "" "C:\Windows\System32\taskmgr.exe"
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
@@ -93,13 +93,13 @@ start cmd
 start cmd.exe
 start %WinDir%\System32\cmd.exe
 start "" "C:\Windows\System32\cmd.exe"
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
 echo.^(^i^) Launching Run program...
 for /l %%i in (4,-1,1) do explorer.exe Shell:::{2559a1f3-21d7-11d4-bdaf-00c04f60b9f0}
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
@@ -108,7 +108,7 @@ start control
 start control.exe
 start %WinDir%\System32\control.exe
 start "" "C:\Windows\System32\control.exe"
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
@@ -118,7 +118,7 @@ start explorer
 start explorer.exe
 start %WinDir%\explorer.exe
 start "" "C:\Windows\explorer.exe"
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 
 
@@ -145,14 +145,14 @@ for /l %%i in (4,-1,1) do (
 call :logo
 echo.^(^i^) The work is completed^!
 echo.^(^i^) Special thanks to the Symantec Team for unHookExec.inf file^!
->nul timeout /nobreak /t 1
+timeout /nobreak /t 1 >nul
 
 echo.^(^?^) Reload now^? ^(Enter or close^)
 pause>nul
 
 echo.^(^!^) Reboot^!
 shutdown /r /t 5
->nul timeout /t 4
+timeout /t 4 >nul
 exit
 
 
@@ -166,7 +166,13 @@ title [MikronT] Windows Switcher
 color 0b
 cls
 echo.
+echo.
 echo.    [MikronT] ==^> Windows Switcher
+echo.   ================================
+echo.     See other here:
+echo.         github.com/MikronT
+echo.
+echo.
 echo.
 exit /b
 
@@ -175,6 +181,6 @@ exit /b
 
 
 :startAsAdmin
-echo.Please, run as Admin!
->nul timeout /nobreak /t 3
+echo.^(^!^) Please, run as Admin^!
+timeout /nobreak /t 3 >nul
 exit
