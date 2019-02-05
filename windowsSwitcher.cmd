@@ -172,6 +172,9 @@ echo.   ================================
 echo.     See other here:
 echo.         github.com/MikronT
 echo.
+echo.                  Will no longer be updated^!
+echo.                  Merged with Ten Tweaker
+echo.
 echo.
 echo.
 exit /b
