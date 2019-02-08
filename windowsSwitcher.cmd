@@ -130,11 +130,10 @@ echo.    - HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 echo.
 echo.^(^i^) You can find them at the root of the system drive.
 
+reg export HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run %systemDrive%\HKLMRun.reg /y
+reg export HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run %systemDrive%\HKCURun.reg /y
 for /l %%i in (4,-1,1) do (
-  reg export HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run %systemDrive%\HKLMRun.reg /y
   reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
-
-  reg export HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run %systemDrive%\HKCURun.reg /y
   reg delete HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
 )
 
@@ -168,7 +167,8 @@ cls
 echo.
 echo.
 echo.    [MikronT] ==^> Windows Switcher
-echo.   ================================
+echo.                  Release v1.0
+echo.   ==========================================
 echo.     See other here:
 echo.         github.com/MikronT
 echo.
